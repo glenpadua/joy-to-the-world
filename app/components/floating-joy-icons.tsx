@@ -45,7 +45,7 @@ export default function FloatingJoyIcons() {
       id: number
       x: number
       delay: number
-      icon: any
+      icon: React.ElementType
       color: string
       size: string
       duration: number

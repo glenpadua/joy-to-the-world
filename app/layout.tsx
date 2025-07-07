@@ -17,18 +17,19 @@ export const metadata: Metadata = {
   description: "Celebrating Joy Mendez's 50th birthday! Share your favorite memories, photos, and messages on this special digital wall. From India to France, from padel to salsa - let's fill this with 50 years worth of joyful moments! 🎉💙",
   keywords: "birthday, celebration, Joy Mendez, 50th birthday, memory wall, family, friends",
   authors: [{ name: "Joy's Family" }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   openGraph: {
     title: "50 Years of Joy | Joy Mendez's Birthday Wall",
-    description: "Help us celebrate Joy's 50th birthday! Share your memories, photos, and messages on this special wall. From his cooking shows to dance moves, let's make this milestone unforgettable! 🎉",
+    description: "Celebrate Joy's 50th birthday! Share your memories, photos, and messages on this special wall. From his cooking to dance moves, let's make this milestone unforgettable! 🎉",
     type: "website",
     locale: "en_US",
     siteName: "50 Years of Joy",
     images: [
       {
-        url: "/og-image.jpg", // You'd add a nice birthday-themed image here
+        url: "/og-image.jpg", 
         width: 1200,
         height: 630,
-        alt: "50 Years of Joy - Uncle Joy's Birthday Wall",
+        alt: "50 Years of Joy - Joy Mendez's Birthday Wall",
       },
     ],
   },
@@ -42,8 +43,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: "width=device-width, initial-scale=1",
 };
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
