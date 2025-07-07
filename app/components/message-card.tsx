@@ -11,6 +11,10 @@ interface MessageCardProps {
   delay: number
 }
 
+const TOP_CROP_IMAGES = [
+  "https://oagmnxqqbkynjfvuzcnq.supabase.co/storage/v1/object/public/joy-photos//Jo-new.jpeg",
+]
+
 export default function MessageCard({ message, onClick, delay }: MessageCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -31,7 +35,9 @@ export default function MessageCard({ message, onClick, delay }: MessageCardProp
               alt=""
               width={400}
               height={300}
-              className={`w-full h-full object-cover transition-all duration-500 ${imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-110"}`}
+              className={`w-full h-full object-cover transition-all duration-500 ${
+                TOP_CROP_IMAGES.includes(message.photo_url) ? "object-top" : "object-center"
+              } ${imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-110"}`}
               onLoad={() => setImageLoaded(true)}
             />
             {isHovered && (
@@ -47,7 +53,7 @@ export default function MessageCard({ message, onClick, delay }: MessageCardProp
 
           <div className="flex items-center justify-between">
             <div className="text-sky-600 font-semibold">— {message.name}</div>
-            <div className="text-xs text-gray-400">{new Date(message.created_at).toLocaleDateString()}</div>
+            <div className="w-6 h-6 text-pink-500">❤️</div>
           </div>
         </div>
       </div>
