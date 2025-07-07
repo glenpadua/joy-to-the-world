@@ -26,7 +26,7 @@ const translations = {
     readMore: "Read More",
     close: "Close",
     namePlaceholder: "Who's spreading the joy?",
-    messagePlaceholder: "Share a joyful memory, a moment that sparked happiness, or simply spread some joy! What makes Uncle Joy so special? 🌟",
+    messagePlaceholder: "Share a joyful memory, a moment that sparked happiness, or simply spread some joy! What makes him so special? 🌟",
     addPhotoPlaceholder: "Add a picture worth a thousand joys!",
   },
   fr: {
@@ -44,7 +44,7 @@ const translations = {
     readMore: "Lire plus",
     close: "Fermer",
     namePlaceholder: "Qui répand la joie ?",
-    messagePlaceholder: "Partagez un souvenir joyeux, un moment de bonheur, ou répandez simplement la joie ! Qu'est-ce qui rend Oncle Joy si spécial ? 🌟",
+    messagePlaceholder: "Partagez un souvenir joyeux, un moment qui a déclenché le bonheur, ou répandez simplement la joie ! Qu'est-ce qui le rend si spécial ? 🌟",
     addPhotoPlaceholder: "Ajoutez une photo qui vaut mille joies !",
   },
 }
