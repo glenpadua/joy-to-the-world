@@ -1,14 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { useMessages } from "../contexts/message-context"
+import { messages } from "../data/archive"
 import MessageCard from "./message-card"
 import MessageModal from "./message-modal"
-import type { Message } from "../contexts/message-context"
+import type { ArchiveMessage } from "../data/archive"
 
 export default function MessageWall() {
-  const { messages } = useMessages()
-  const [selectedMessage, setSelectedMessage] = useState<Message | null>(null)
+  const [selectedMessage, setSelectedMessage] = useState<ArchiveMessage | null>(null)
 
   return (
     <section className="px-4 py-8">

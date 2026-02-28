@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useLanguage } from "../contexts/language-context"
-import { useMessages } from "../contexts/message-context"
+import { totalMessages } from "../data/archive"
 import { Mountain, Sparkles, ChefHat, Music, Camera, Globe, Flower2, TreePine } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -21,7 +21,6 @@ const joyNames = ["Jo Uncle", "Jo", "Joy", "Joy Mendez"]
 
 export default function Hero() {
   const { t } = useLanguage()
-  const { totalMessages } = useMessages()
   const [randomIcons, setRandomIcons] = useState<Array<{ icon: React.ComponentType<{ className?: string }>; color: string }>>([])
   const [nameIndex, setNameIndex] = useState(0)
 
@@ -80,15 +79,20 @@ export default function Hero() {
           </AnimatePresence>
         </p>
 
-        <div className="bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 inline-flex items-center gap-2 shadow-lg animate-fade-in-delay-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-          <span className="text-sky-800 font-semibold">
-            {totalMessages} {t("messageCount")}
-          </span>
+        <p className="max-w-2xl mx-auto text-sm md:text-base text-sky-700/90 mb-8 animate-fade-in-delay">
+          {t("archiveDescription")}
+        </p>
+
+        <div className="flex items-center justify-center animate-fade-in-delay-2">
+          <div className="bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 inline-flex items-center gap-2 shadow-lg">
+            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <span className="text-sky-800 font-semibold">
+              {totalMessages} {t("messageCount")}
+            </span>
+          </div>
         </div>
 
-        {/* Joy Meter */}
-        <div className="mt-8 max-w-md mx-auto">
+        <div className="mt-10 max-w-md mx-auto">
           <div className="text-sm text-sky-600 mb-2 font-medium">{t("joyMeter")} 📊</div>
           <div className="bg-white/50 rounded-full h-4 overflow-hidden shadow-inner">
             <div

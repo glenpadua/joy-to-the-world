@@ -2,17 +2,17 @@
 
 import { useState } from "react"
 import { Sparkles } from "lucide-react"
-import type { Message } from "../contexts/message-context"
+import type { ArchiveMessage } from "../data/archive"
 import Image from "next/image"
 
 interface MessageCardProps {
-  message: Message
+  message: ArchiveMessage
   onClick: () => void
   delay: number
 }
 
 const TOP_CROP_IMAGES = [
-  "https://oagmnxqqbkynjfvuzcnq.supabase.co/storage/v1/object/public/joy-photos//Jo-new.jpeg",
+  "/archive/photos/Jo-new.jpeg",
 ]
 
 export default function MessageCard({ message, onClick, delay }: MessageCardProps) {
@@ -28,15 +28,15 @@ export default function MessageCard({ message, onClick, delay }: MessageCardProp
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="bg-white border-2 border-sky-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:scale-105 hover:rotate-1">
-        {message.photo_url && (
+        {message.photo_path && (
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
-              src={message.photo_url || "https://placehold.co/400x300.png?text=No+Image"}
+              src={message.photo_path}
               alt=""
               width={400}
               height={300}
               className={`w-full h-full object-cover transition-all duration-500 ${
-                TOP_CROP_IMAGES.includes(message.photo_url) ? "object-top" : "object-center"
+                TOP_CROP_IMAGES.includes(message.photo_path) ? "object-top" : "object-center"
               } ${imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-110"}`}
               onLoad={() => setImageLoaded(true)}
             />
@@ -49,7 +49,7 @@ export default function MessageCard({ message, onClick, delay }: MessageCardProp
         )}
 
         <div className="p-4">
-          <p className="text-sky-800 leading-relaxed text-base font-medium mb-4">{message.message}</p>
+          <p className="text-sky-800 leading-relaxed text-base font-medium mb-4 whitespace-pre-wrap">{message.message}</p>
 
           <div className="flex items-center justify-between">
             <div className="text-sky-600 font-semibold">— {message.name}</div>
